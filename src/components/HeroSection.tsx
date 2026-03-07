@@ -1,18 +1,16 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import heroBg from "@/assets/hero-bg.jpg";
 
 const slides = [
   {
-    title: "Strategic GTM & Channel Expansion Partner",
+    title: "Operator-Led GTM & Channel Expansion for Global Technology Companies",
     subtitle:
-      "Holistech Global Solutions helps technology companies enter, expand, and scale across high-growth markets.",
+      "Where strategic design meets revenue execution.",
   },
   {
-    title: "Scaling Technology Companies Through Structured Channel Growth",
+    title: "Building Scalable Partner Ecosystems That Convert Strategy Into Revenue",
     subtitle:
-      "We build scalable partner ecosystems that convert strategy into predictable revenue.",
+      "Transforming OEM partnerships into predictable revenue engines.",
   },
 ];
 
@@ -36,65 +34,56 @@ const HeroSection = () => {
   return (
     <section
       id="home"
-      className="relative min-h-[85vh] flex items-center justify-start overflow-hidden"
+      className="hero-premium-bg relative min-h-screen flex items-center overflow-hidden"
     >
-      {/* Background */}
-      <div className="absolute inset-0">
-        <img src={heroBg} alt="Technology background" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-hero-overlay/75" />
-      </div>
-
-      {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 lg:px-8 py-32">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={current}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="max-w-3xl"
-          >
-            <p className="text-sm uppercase tracking-[0.25em] text-primary-foreground/80 mb-3 font-semibold">
-              Holistech Global Solutions
-            </p>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading !text-primary-foreground leading-tight mb-4">
-              {slides[current].title}
-            </h1>
-            <p className="text-lg md:text-xl text-primary-foreground/80 mb-8 font-body">
-              {slides[current].subtitle}
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Button
-                size="lg"
-                className="rounded-full px-8 text-base"
-                onClick={() => scrollToSection("partner")}
-              >
-                Partner With Us
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="rounded-full px-8 text-base border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-                onClick={() => scrollToSection("services")}
-              >
-                Explore Our Services
-              </Button>
+      {/* Content — two-column layout */}
+      <div className="hero-premium-content container mx-auto px-4 lg:px-8 py-24 lg:py-32">
+        <div className="hero-layout">
+          {/* Left column: Text content */}
+          <div className="hero-layout__text">
+            <div className="relative z-10">
+              <p className="hero-label text-sm uppercase tracking-[0.25em] mb-4 font-semibold">
+                Holistech Global Solutions
+              </p>
+              <h1 className="hero-title">
+                {slides[current].title}
+              </h1>
+              <p className="hero-subtitle text-lg md:text-xl mb-10 font-body">
+                {slides[current].subtitle}
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Button
+                  size="lg"
+                  className="hero-btn-primary"
+                  onClick={() => scrollToSection("partner")}
+                >
+                  Partner With Us
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="hero-btn-secondary"
+                  onClick={() => scrollToSection("services")}
+                >
+                  Explore Our Services
+                </Button>
+              </div>
             </div>
-          </motion.div>
-        </AnimatePresence>
 
-        {/* Dots */}
-        <div className="flex gap-2 mt-10">
-          {slides.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setCurrent(i)}
-              className={`w-3 h-3 rounded-full transition-all ${
-                i === current ? "bg-primary scale-110" : "bg-primary-foreground/40"
-              }`}
-            />
-          ))}
+            {/* Dots */}
+            <div className="flex gap-2 mt-10">
+              {slides.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setCurrent(i)}
+                  className={`hero-dot ${
+                    i === current ? "hero-dot--active" : ""
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

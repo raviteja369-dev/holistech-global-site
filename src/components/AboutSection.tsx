@@ -1,105 +1,173 @@
 import { motion } from "framer-motion";
-import aboutImg from "@/assets/about-img.jpg";
-
-const whatWeDoPoints = [
-  "Enter new markets with clarity and commercial alignment",
-  "Build scalable partner and distribution ecosystems",
-  "Activate high-performing channel networks",
-  "Structure revenue-driven engagement models",
-  "Accelerate enterprise acquisition through partner-led growth",
-];
 
 const howWeWorkSteps = [
   {
+    number: "01",
     title: "Assess",
     description:
-      "Market potential, competitive positioning, industry readiness, and commercial viability.",
+      "Market potential, competitive position, and readiness of current GTM and partner motions.",
+    color: "from-blue-500 to-cyan-500",
+    bg: "bg-blue-50",
+    border: "border-blue-200",
   },
   {
+    number: "02",
     title: "Structure",
     description:
-      "Channel frameworks, engagement models, pricing alignment, and incentive design.",
+      "Design channel architecture, engagement models, incentives, and governance for your ecosystem.",
+    color: "from-violet-500 to-purple-500",
+    bg: "bg-violet-50",
+    border: "border-violet-200",
   },
   {
+    number: "03",
     title: "Activate",
-    description: "Enablement and joint GTM execution.",
+    description: "Enable partners, launch joint plays, and operationalize commercial execution across stakeholders.",
+    color: "from-emerald-500 to-teal-500",
+    bg: "bg-emerald-50",
+    border: "border-emerald-200",
   },
   {
+    number: "04",
     title: "Scale",
     description:
-      "Pipeline acceleration, territory expansion, and business growth.",
+      "Double down on what works with territory expansion, pipeline acceleration, and performance management.",
+    color: "from-orange-500 to-amber-500",
+    bg: "bg-orange-50",
+    border: "border-orange-200",
   },
 ];
 
 const AboutSection = () => (
-  <section id="about" className="section-padding bg-background">
-    <div className="container mx-auto grid md:grid-cols-2 gap-12 items-center">
-      <motion.div
-        initial={{ opacity: 0, x: -40 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        <img
-          src={aboutImg}
-          alt="Holistech Global Solutions team collaborating"
-          className="rounded-2xl shadow-xl w-full object-cover max-h-[500px]"
-        />
-      </motion.div>
+  <section
+    id="about"
+    className="section-padding relative overflow-hidden"
+    style={{ background: "transparent" }}
+  >
+    <div className="container mx-auto relative z-10">
+      {/* Image and Content Grid */}
+      <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-20">
+        {/* Image */}
+        <motion.div
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="order-2 lg:order-1"
+        >
+          <div className="relative group">
+            {/* Decorative frame */}
+            <div className="absolute -inset-3 bg-gradient-to-br from-blue-200/30 to-violet-200/20 rounded-3xl blur-sm group-hover:blur-md transition-all duration-500" />
+            <img
+              src="/What we do.png"
+              alt="What We Do - Holistech Global Solutions"
+              className="relative rounded-2xl shadow-2xl shadow-slate-300/40 w-full object-cover max-h-[500px] ring-1 ring-white/60"
+            />
+          </div>
+        </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0, x: 40 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.15 }}
-        className="space-y-6"
-      >
-        <div>
-          <h2 className="text-3xl md:text-4xl font-bold font-heading mb-3">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+          className="order-1 lg:order-2 space-y-5"
+        >
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">
+            Who We Are
+          </p>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-heading leading-tight">
             What We Do
           </h2>
-          <p className="text-body leading-relaxed mb-4">
-            We enable technology vendors, SaaS companies, and enterprise solution providers to build
-            scalable, revenue-focused channel ecosystems.
+          <p className="text-2xl md:text-3xl lg:text-4xl font-bold font-heading text-slate-900 leading-tight mb-4">
+            Where Strategy Meets Execution and Growth Becomes Predictable.
           </p>
-          <ul className="space-y-2 text-body text-sm md:text-base">
-            {whatWeDoPoints.map((point) => (
-              <li key={point} className="flex gap-2">
-                <span className="mt-1 h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0" />
-                <span>{point}</span>
-              </li>
+          <p className="text-lg md:text-xl text-body leading-relaxed">
+            Holistech Global Solutions is an operatorl ed strategic advisory and channel partner firm enabling technology companies to scale across domestic and global markets.
+          </p>
+          <p className="text-lg md:text-xl text-body leading-relaxed font-medium">
+            We don't just advise on growth we build it.
+          </p>
+          <p className="text-lg md:text-xl text-body leading-relaxed">
+            Through disciplined go to market architecture, ecosystem design, and hands on execution, we transform OEM partnerships into predictable revenue engines.
+          </p>
+          <p className="text-lg md:text-xl text-body leading-relaxed">
+            By aligning strategy with on ground channel performance, we deliver scalable, sustainable, and outcome driven expansion.
+          </p>
+          <div className="flex flex-wrap gap-3 pt-2">
+            {["GTM Strategy", "Channel Growth", "Partner Ecosystems", "Revenue Scaling"].map((tag, i) => (
+              <motion.span
+                key={tag}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 + i * 0.05 }}
+                className="px-3 py-1.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-200/50"
+              >
+                {tag}
+              </motion.span>
             ))}
-          </ul>
-          <p className="text-sm text-muted-foreground mt-3">
-            We don’t just introduce partners. We engineer revenue engines.
+          </div>
+        </motion.div>
+      </div>
+
+      {/* How We Work Section */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7, delay: 0.1 }}
+        className="max-w-5xl mx-auto mb-16"
+      >
+        {/* Section Header */}
+        <div className="text-center mb-10">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600 mb-3">
+            How We Work
+          </p>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-heading mb-4">
+            From strategy decks to on-ground execution.
+          </h2>
+          <p className="text-base md:text-lg text-body leading-relaxed max-w-2xl mx-auto">
+            A structured, operator-led approach that connects GTM strategy to the day-to-day reality of partners, sellers, and enterprise buyers.
           </p>
         </div>
 
-        <div>
-          <h3 className="text-xl md:text-2xl font-semibold font-heading mb-3">
-            How We Work
-          </h3>
-          <p className="text-body text-sm md:text-base mb-4">
-            A systematic approach that ensures strategy translates into measurable, repeatable
-            outcomes.
-          </p>
-          <div className="grid sm:grid-cols-2 gap-4">
-            {howWeWorkSteps.map((step) => (
-              <div
-                key={step.title}
-                className="rounded-xl border border-border bg-card p-4"
-              >
-                <p className="text-xs font-semibold uppercase tracking-wide text-primary mb-1">
-                  {step.title}
-                </p>
-                <p className="text-xs md:text-sm text-body leading-relaxed">
-                  {step.description}
-                </p>
+        {/* Steps */}
+        <div className="grid sm:grid-cols-2 gap-5">
+          {howWeWorkSteps.map((step, index) => (
+            <motion.div
+              key={step.title}
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              className="group relative bg-white/70 backdrop-blur-sm rounded-2xl border border-slate-200/60 p-6 hover:shadow-lg hover:shadow-slate-200/50 transition-all duration-400 hover:-translate-y-1 overflow-hidden"
+            >
+              {/* Top accent */}
+              <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${step.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
+
+              <div className="flex gap-5">
+                {/* Number */}
+                <div className={`flex-shrink-0 w-14 h-14 rounded-2xl ${step.bg} border ${step.border} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                  <span className="text-base font-bold text-slate-700">{step.number}</span>
+                </div>
+
+                {/* Content */}
+                <div className="flex-1">
+                  <h3 className="text-base font-bold uppercase tracking-wider text-foreground mb-2">
+                    {step.title}
+                  </h3>
+                  <p className="text-sm text-body leading-relaxed">
+                    {step.description}
+                  </p>
+                </div>
               </div>
-            ))}
-          </div>
+            </motion.div>
+          ))}
         </div>
       </motion.div>
+
     </div>
   </section>
 );

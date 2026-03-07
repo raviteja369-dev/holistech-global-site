@@ -1,87 +1,142 @@
-import { Mail, MapPin, Globe2 } from "lucide-react";
+import { motion } from "framer-motion";
+import { Mail, MapPin, Globe2, ArrowRight, Linkedin, Twitter } from "lucide-react";
 
-const FooterSection = () => (
-  <footer className="bg-foreground text-primary-foreground">
-    <div className="container mx-auto section-padding grid md:grid-cols-3 gap-10">
-      <div>
-        <h3 className="font-heading text-xl font-bold mb-4">
-          Holistech<span className="text-primary">Global</span> Solutions
-        </h3>
-        <p className="text-primary-foreground/70 text-sm leading-relaxed">
-          Strategic GTM and channel expansion partner for technology companies scaling across domestic and global
-          markets.
-        </p>
+const quickLinks = [
+  { label: "Home", href: "#home" },
+  { label: "Services", href: "#services" },
+  { label: "Ecosystem", href: "#ecosystem" },
+  { label: "Industries", href: "#industries" },
+  { label: "Insights", href: "#insights" },
+  { label: "Company", href: "#company" },
+  { label: "Partner With Us", href: "#partner" },
+  { label: "Contact", href: "#contact" },
+];
+
+const FooterSection = () => {
+  const scrollToSection = (href: string) => {
+    const el = document.getElementById(href.replace("#", ""));
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  return (
+    <footer className="relative overflow-hidden">
+      {/* Main footer */}
+      <div className="bg-gradient-to-b from-slate-900 to-slate-950">
+        {/* Top CTA band */}
+        <div className="border-b border-white/5">
+          <div className="container mx-auto px-4 lg:px-8 py-12">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+              <div>
+                <h3 className="text-xl md:text-2xl font-bold font-heading text-white mb-1">
+                  Ready to scale your channel strategy?
+                </h3>
+                <p className="text-sm text-white/50">
+                  Let's discuss how Holistech can accelerate your growth.
+                </p>
+              </div>
+              <a
+                href="#contact"
+                onClick={(e) => { e.preventDefault(); scrollToSection("#contact"); }}
+                className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white bg-gradient-to-r from-blue-600 to-blue-500 rounded-full hover:shadow-lg hover:shadow-blue-500/30 transition-all duration-300 hover:-translate-y-0.5 group"
+              >
+                Get Started
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Footer content */}
+        <div className="container mx-auto px-4 lg:px-8 py-12">
+          <div className="grid md:grid-cols-3 gap-10">
+            {/* Brand */}
+            <div className="space-y-4">
+              <div className="flex items-center gap-2">
+                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
+                  <span className="text-white font-heading font-bold text-sm">H</span>
+                </div>
+                <span className="font-heading text-lg font-bold text-white tracking-tight">
+                  Holistech<span className="text-blue-400">Global</span>
+                </span>
+              </div>
+              <p className="text-white/40 text-sm leading-relaxed max-w-xs">
+                Strategic GTM and channel expansion partner for technology companies scaling across domestic and global
+                markets.
+              </p>
+              {/* Social icons */}
+              <div className="flex gap-3 pt-2">
+                <a href="#" className="w-9 h-9 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors">
+                  <Linkedin className="w-4 h-4 text-white/60" />
+                </a>
+                <a href="#" className="w-9 h-9 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors">
+                  <Twitter className="w-4 h-4 text-white/60" />
+                </a>
+                <a href="#" className="w-9 h-9 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors">
+                  <Mail className="w-4 h-4 text-white/60" />
+                </a>
+              </div>
+            </div>
+
+            {/* Quick links */}
+            <div>
+              <h4 className="font-heading font-semibold text-white mb-5 text-sm uppercase tracking-wide">Quick Links</h4>
+              <ul className="grid grid-cols-2 gap-2">
+                {quickLinks.map((link) => (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      onClick={(e) => { e.preventDefault(); scrollToSection(link.href); }}
+                      className="text-sm text-white/40 hover:text-blue-400 transition-colors duration-200 flex items-center gap-1 group"
+                    >
+                      <ArrowRight className="w-3 h-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Contact */}
+            <div>
+              <h4 className="font-heading font-semibold text-white mb-5 text-sm uppercase tracking-wide">Contact</h4>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Mail className="w-4 h-4 text-blue-400" />
+                  </div>
+                  <span className="text-sm text-white/50">mohsin.mohammed@holistechglobal.com</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <MapPin className="w-4 h-4 text-blue-400" />
+                  </div>
+                  <span className="text-sm text-white/50">India — Chennai | Bengaluru</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Globe2 className="w-4 h-4 text-blue-400" />
+                  </div>
+                  <span className="text-sm text-white/50">India & global expansion support</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div>
-        <h4 className="font-heading font-semibold mb-4">Quick Links</h4>
-        <ul className="space-y-2 text-sm text-primary-foreground/70">
-          <li>
-            <a href="#home" className="hover:text-primary transition-colors">
-              Home
-            </a>
-          </li>
-          <li>
-            <a href="#services" className="hover:text-primary transition-colors">
-              Services
-            </a>
-          </li>
-          <li>
-            <a href="#ecosystem" className="hover:text-primary transition-colors">
-              Ecosystem
-            </a>
-          </li>
-          <li>
-            <a href="#industries" className="hover:text-primary transition-colors">
-              Industries
-            </a>
-          </li>
-          <li>
-            <a href="#insights" className="hover:text-primary transition-colors">
-              Insights
-            </a>
-          </li>
-          <li>
-            <a href="#company" className="hover:text-primary transition-colors">
-              Company
-            </a>
-          </li>
-          <li>
-            <a href="#partner" className="hover:text-primary transition-colors">
-              Partner With Us
-            </a>
-          </li>
-          <li>
-            <a href="#contact" className="hover:text-primary transition-colors">
-              Contact
-            </a>
-          </li>
-        </ul>
+      {/* Copyright bar */}
+      <div className="bg-slate-950 border-t border-white/5">
+        <div className="container mx-auto px-4 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
+          <p className="text-xs text-white/30">
+            © {new Date().getFullYear()} Holistech Global Solutions. All rights reserved.
+          </p>
+          <p className="text-xs text-white/20">
+            Designed with precision for enterprise growth.
+          </p>
+        </div>
       </div>
-
-      <div>
-        <h4 className="font-heading font-semibold mb-4">Contact</h4>
-        <ul className="space-y-3 text-sm text-primary-foreground/70">
-          <li className="flex items-center gap-2">
-            <Mail className="w-4 h-4 text-primary" />
-            mohsin.mohammed@holistechglobal.com
-          </li>
-          <li className="flex items-center gap-2">
-            <MapPin className="w-4 h-4 text-primary" />
-            India &mdash; Chennai | Bengaluru
-          </li>
-          <li className="flex items-center gap-2">
-            <Globe2 className="w-4 h-4 text-primary" />
-            India &amp; global expansion support
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div className="border-t border-primary-foreground/10 py-4 text-center text-xs text-primary-foreground/50">
-      © {new Date().getFullYear()} Holistech Global Solutions. All rights reserved.
-    </div>
-  </footer>
-);
+    </footer>
+  );
+};
 
 export default FooterSection;
