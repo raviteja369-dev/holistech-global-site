@@ -82,24 +82,6 @@ const ServicesSection = () => (
         </motion.p>
       </div>
 
-      {/* Services Image */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.7, delay: 0.3 }}
-        className="mb-16 flex justify-center"
-      >
-        <div className="relative group">
-          <div className="absolute -inset-3 bg-gradient-to-br from-blue-200/30 to-violet-200/20 rounded-3xl blur-sm group-hover:blur-md transition-all duration-500" />
-          <img
-            src="/Services.png"
-            alt="Services - Holistech Global Solutions"
-            className="relative rounded-2xl shadow-2xl shadow-slate-300/40 w-full max-w-4xl object-cover ring-1 ring-white/60"
-          />
-        </div>
-      </motion.div>
-
       {/* Service cards */}
       <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
         {services.map((s, i) => (

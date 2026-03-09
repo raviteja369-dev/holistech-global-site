@@ -4,13 +4,13 @@ import { Button } from "@/components/ui/button";
 const slides = [
   {
     title: "Operator-Led GTM & Channel Expansion for Global Technology Companies",
-    subtitle:
-      "Where strategic design meets revenue execution.",
+    subtitle: "Where strategic design meets revenue execution.",
+    image: "/Banner1.png",
   },
   {
-    title: "Building Scalable Partner Ecosystems That Convert Strategy Into Revenue",
-    subtitle:
-      "Transforming OEM partnerships into predictable revenue engines.",
+    title: "We build scalable partner ecosystems that transform strategy into predictable revenue.",
+    subtitle: "Transforming OEM partnerships into predictable revenue engines.",
+    image: "/hero.png",
   },
 ];
 
@@ -35,15 +35,18 @@ const HeroSection = () => {
     <section
       id="home"
       className="hero-premium-bg relative min-h-screen flex items-center overflow-hidden"
+      style={{
+        backgroundImage: `url('${slides[current].image}')`,
+      }}
     >
-      {/* Content — two-column layout */}
-      <div className="hero-premium-content container mx-auto px-4 lg:px-8 py-24 lg:py-32">
+      {/* Content — single-column layout, tightened padding so CTAs fit above the fold */}
+      <div className="hero-premium-content container mx-auto px-4 lg:px-8 pt-16 pb-16 lg:pt-20 lg:pb-24">
         <div className="hero-layout">
           {/* Left column: Text content */}
           <div className="hero-layout__text">
             <div className="relative z-10">
               <p className="hero-label text-sm uppercase tracking-[0.25em] mb-4 font-semibold">
-                Holistech Global Solutions
+                Holis tech Global Solutions
               </p>
               <h1 className="hero-title">
                 {slides[current].title}

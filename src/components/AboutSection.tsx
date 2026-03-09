@@ -84,16 +84,16 @@ const AboutSection = () => (
             Where Strategy Meets Execution and Growth Becomes Predictable.
           </p>
           <p className="text-lg md:text-xl text-body leading-relaxed">
-            Holistech Global Solutions is an operatorl ed strategic advisory and channel partner firm enabling technology companies to scale across domestic and global markets.
+            Holistech Global Solutions is an operator-led strategic advisory and channel partner firm enabling technology companies to scale across domestic and global markets.
           </p>
           <p className="text-lg md:text-xl text-body leading-relaxed font-medium">
-            We don't just advise on growth we build it.
+            We don&apos;t just advise on growth — we build it.
           </p>
           <p className="text-lg md:text-xl text-body leading-relaxed">
-            Through disciplined go to market architecture, ecosystem design, and hands on execution, we transform OEM partnerships into predictable revenue engines.
+            Through disciplined go-to-market architecture, ecosystem design, and hands-on execution, we transform OEM partnerships into predictable revenue engines.
           </p>
           <p className="text-lg md:text-xl text-body leading-relaxed">
-            By aligning strategy with on ground channel performance, we deliver scalable, sustainable, and outcome driven expansion.
+            By aligning strategy with on-ground channel performance, we deliver scalable, sustainable, and outcome-driven expansion.
           </p>
           <div className="flex flex-wrap gap-3 pt-2">
             {["GTM Strategy", "Channel Growth", "Partner Ecosystems", "Revenue Scaling"].map((tag, i) => (

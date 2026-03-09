@@ -169,12 +169,22 @@
 .hero-premium-bg {
   position: relative;
   overflow: hidden;
-  background-image: url('/hero.png');
   background-size: cover;
-  background-position: center top;
+  background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
-  padding-top: 72px;
+  padding-top: 182px;
+}
+
+/* Extra offset just for Company page hero so image sits lower */
+.hero-premium-bg--company {
+  padding-top: 220px;
+}
+
+/* Full-page hero variant (used on Ecosystem & Insights pages)
+   Ensures the banner fills the viewport under the navbar */
+.hero-page-full {
+  min-height: calc(100vh - 96px);
 }
 
 /* Gradient overlay for better text readability - stronger gradient */
@@ -391,7 +401,7 @@
 .hero-layout__text {
   position: relative;
   z-index: 2;
-  max-width: 640px;
+  max-width: 760px;
 }
 
 .hero-layout__visual {
@@ -412,7 +422,7 @@
    ============================================================ */
 .hero-title {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-size: clamp(48px, 6vw, 72px);
+  font-size: clamp(40px, 5vw, 64px);
   line-height: 1.05;
   font-weight: 700;
   letter-spacing: -1px;
@@ -975,5 +985,53 @@ html {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+/* ============================================================
+   TECHNOLOGY PROVIDERS LOGO CAROUSEL
+   Equal-size logos in a continuous horizontal scroll
+   ============================================================ */
+
+.logo-carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.logo-carousel-track {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  animation: logo-scroll 28s linear infinite;
+}
+
+.logo-carousel-item {
+  flex: 0 0 160px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: grayscale(0.2);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.logo-carousel-image:hover {
+  transform: scale(1.05);
+  filter: grayscale(0);
+}
+
+@keyframes logo-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
